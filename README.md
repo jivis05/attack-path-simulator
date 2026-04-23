@@ -1,16 +1,51 @@
-# React + Vite
+# Attack Path Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Attack Path Simulator is an interactive cybersecurity simulation tool that allows users to construct and validate attack chains using real-world techniques and dependencies.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+This project provides a browser-based environment where users simulate attacker behavior by chaining actions such as phishing, privilege escalation, lateral movement, and data exfiltration.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Each step is validated against system constraints, helping users understand how attacks progress and why certain sequences fail. The goal is to provide a practical way to learn attack flow and defensive thinking.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Build step-by-step attack chains  
+- State-based validation system  
+- Guided mode to highlight valid actions  
+- Scoring based on efficiency and time penalty  
+- Multiple levels with increasing complexity  
+- Random scenario generation  
+- Failure tracing with detailed explanations  
+- Basic defensive insights for each step  
+
+---
+
+## Concepts Covered
+
+- Initial access (phishing, brute force)  
+- Privilege escalation  
+- Lateral movement  
+- Persistence  
+- Credential dumping  
+- Data staging and exfiltration  
+
+---
+
+## Tech Stack
+
+- React (Vite)  
+- JavaScript  
+- CSS  
+
+---
+
+## Installation
+
+```bash
+npm install
+npm run dev
