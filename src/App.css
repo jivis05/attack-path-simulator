@@ -1,0 +1,182 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  background: transparent; /* 🔥 critical */
+}
+
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #e5e7eb;
+
+  background:
+    linear-gradient(rgba(242, 244, 250, 0.85), rgba(13, 25, 137, 0.85)),
+    url("./assets/bg.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ================= LAYOUT ================= */
+.container {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden; /* 🔥 prevents overflow glitches */
+}
+
+.panel {
+  padding: 20px;
+  background: rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(6px);
+  border-right: 1px solid rgba(255,255,255,0.05);
+  overflow-y: auto; /* 🔥 each panel scrolls independently */
+}
+
+/* Panels */
+.left {
+  width: 25%;
+  border-right: 1px solid #1e293b;
+}
+
+.center {
+  width: 50%;
+  overflow-y: auto;
+}
+
+.right {
+  width: 25%;
+  border-left: 1px solid #1e293b;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+  padding: 8px 12px;
+  background: #1e293b;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+/* spacing handled by container instead of margin */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* 🔥 fixes uneven spacing */
+  margin-bottom: 10px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn.active {
+  background: #22c55e !important;
+  box-shadow: 0 0 5px #22c55e;
+}
+
+.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ================= TYPOGRAPHY ================= */
+h2, h3 {
+  margin-top: 0;
+}
+
+h4 {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* ================= CHAIN ================= */
+.chain {
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.fail {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* ================= ANALYSIS PANEL ================= */
+.analysis {
+  background: rgba(7, 0, 0, 0.9);
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 12px;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ================= STATUS COLORS ================= */
+.success { color: #22c55e; }
+.error { color: #ef4444; }
+.warning { color: #facc15; }
+
+/* ================= SCROLLBAR (optional polish) ================= */
+.panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+/* SWITCH TOGGLE */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #334155;
+  border-radius: 22px;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  top: 3px;
+  background-color: rgb(255, 254, 254);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background-color: #22c55e;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
